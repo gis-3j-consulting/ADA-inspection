@@ -1,0 +1,226 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e6e4e4;
+    font-size: 0.6em;
+}
+
+.top-bar {
+    background-color: #f0919c;
+    color: white;
+    padding: 20px;
+    text-align: left;
+}
+
+.top-top-bar {
+    display: flex;
+}
+
+.title {
+    flex: 2;
+}
+
+.print-button {
+    flex: 1;
+}
+
+#dataFormheader {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.header-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-group input {
+    margin-bottom: 2px;
+    width: 100px;
+}
+
+label {
+    margin-top: 1px;
+    color: black;
+    font-size: 10pt;
+}
+
+img {
+    width:100%;
+    max-width: 250px;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 90%;
+  }
+  
+  .box {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .side-box {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .left-column {
+    flex: 1;
+  }
+  
+  .middle-box {
+    flex: 1.5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .middle-group, .middle-group2 {
+    background-color: #ebebeb;
+  }
+
+  .inline-img {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .middle-group input, .middle-group2 input {
+    height: 30px;
+  }
+
+  .middle-group select, .middle-group2 select {
+    height: 30px;
+  }
+
+  .internal-column-container {
+    display:flex;
+    justify-content: space-between;
+}
+
+.internal-column2 {
+    flex: 1;
+    min-width: 0;
+}
+
+.internal-column2 input {
+    width: 30px;
+}
+
+.internal-column3 {
+    flex: 3;
+    min-width: 0;
+    max-width: fit-content;
+}
+
+.internal-column3 input {
+    max-width: 80px;
+}
+
+.vertbox-container {
+    flex: 2;
+}
+
+.comments-box input {
+    width: 100px;
+    height: 60px;
+}
+
+.downloadform {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: white;
+    color: #333;
+    border: 2px solid #333;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #333;
+    color: white;
+}
+
+.file-input {
+    display: none;
+  }
+
+#resetButtons {
+    position: relative;
+    bottom: 5px;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    z-index: 1001;
+    margin: 15% auto;
+    padding: 20px;
+    width: 30%;
+}
+
+.close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .side-box {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .internal-column-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .comments-box input {
+        width: 60px;
+    }
+
+    .internal-column3 {
+        max-width: 60px;
+    }
+
+    #comments-box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        max-width: 100px;
+        font-size: 0.7em;
+    }
+}

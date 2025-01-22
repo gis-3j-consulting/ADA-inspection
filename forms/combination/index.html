@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combination</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-top-bar">
+            <div class="title">
+                <h1>ADA Curb Ramp New Constriction Inspection Form (Combination)</h1>
+            </div>
+            <div class="print-button">
+                <form id="fileNameForm">
+                    <div class="downloadform">
+                    <label for="fileName">File Name:</label>
+                    <input type="text" id="fileName" name="fileName" placeholder="Enter file name"><br>
+                    <button type="button" onclick="downloadXLSX()">Download XLSX</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        <form id="dataFormheader">
+          <div class="header-group">
+              <input type="text" id="ns-road" name="ns-road">
+              <label for="ns-road">North-South Road Name</label>
+          </div>
+          <div class="header-group">
+              <input type="text" id="proj-num" name="proj-num" value="24952.54">
+              <label for="proj-num">Project No.</label>
+          </div>
+          <div class="header-group">
+              <input type="text" id="sheet-num" name="sheet-num">
+              <label for="sheet-num">Sheet No.</label>
+          </div>
+          <div class="header-group">
+              <input type="text" id="intersection" name="intersection">
+              <label for="intersection">Intersection No.</label>
+          </div>
+          <div class="header-group">
+              <input type="text" id="ew-road" name="ew-road">
+              <label for="ew-road">East-West Road Name</label>
+          </div>
+          <div class="header-group">
+              <input type="date" id="cal-date" name="cal-date">
+              <label for="cal-date">Calibration Date</label>
+          </div>
+      </form>
+  </div>
+  <div class="container">
+      <div class="box side-box">
+        <div class="left-column">
+          <form id="dataForm1">
+            <h2>Ramp Style: Combination</h2>
+            <img src="../images/combination.png" style="width: 120px">
+        </form>
+        <div class="side-lower">
+            <div>
+                <form>
+                    <label for="warning2curb">Longest distance from detectable warning corner to back of curb (to nearest inch)</label>
+                    <input type="number" id="warning2curb" name="warning2curb">
+                </form>
+            </div>
+            <div>
+                <label for="warning-fullwidth">Detectable warning extends full width of ramp throat opening</label>
+                    <select id="warning-fullwidth" name="warning-fullwidth">
+                        <option value="Y">Yes</option>
+                        <option value="N">No</option>
+                    </select>
+            </div>
+          <div class="side-lower">
+            <img src="../images/combination2.png">
+          </div>
+          </div>
+          </div>
+      <div>
+        <p></p>
+      </div>
+      <div>
+        <p></p>
+      </div>
+      <div>
+        <p></p>
+      </div>
+      <div class="vertbox-container">
+        <div class="vertbox">
+            <div class="internal-column-container">
+            <div class="internal-column2">
+                <form id="dataForm4">
+                    <select id="corner-position" name="corner-position"><br>
+                      <option value=""></option>
+                      <option value="1">1</option>
+                      <option value="1A">1A</option>
+                      <option value="2">2</option>
+                      <option value="2A">2A</option>
+                      <option value="3">3</option>
+                      <option value="3A">3A</option>
+                      <option value="4">4</option>
+                      <option value="4A">4A</option>
+                      <option value="5">5</option>
+                      <option value="5A">5A</option>
+                      <option value="6">6</option>
+                      <option value="6A">6A</option>
+                      <option value="7">7</option>
+                      <option value="7A">7A</option>
+                      <option value="8">8</option>
+                      <option value="8A">8A</option>
+                      <option value="midblock">Midblock</option>
+                    </select>
+                    <p></p>
+                    <p></p>
+                    <label for="corner-position">Corner Position</label>
+                      <p></p>
+                      <select id="ramp-position" name="ramp-position"><br>
+                        <option value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        </select>
+                        <p></p>
+                      <label for="ramp-position">Ramp Position</label>
+                </form>
+    </div>
+        <div class="internal-column3">
+          <img src="../images/intersection.png" style="width: 120px">
+        </div>
+    </div>
+        </div>
+        <div class="vertbox">
+            <form id="dataForm5">
+                <div class="comments-box">
+                    <label for="comments">Comments</label>
+                    <input type="text" id="comments" name="comments"><br>
+                </div>
+            </form>
+        </div>
+        <div class="vertbox">
+            <div class="internal-column-container">
+              <div class="internal-column3">
+                <form id="signatures-form">
+                    <input type="text" id="inspector-sig" name="inspector-sig"><br>
+                    <label for="inspector-sig">Inspector's Signature</label>
+                    <p></p>
+                    <input type="text" id="print-name" name="print-name" value="Darrell Wyant"><br>
+                    <label for="print-name">Print name clearly</label>
+                    <p></p>
+                    <input type="text" id="agency" name="agency" value="3J Consulting"><br>
+                    <label for="agency">Company/Agency</label>
+                </form>
+            </div>
+            <div class="internal-column2">
+                <form id="signatures-dates">
+                    <input type="date" id="inspection-date" name="inspection-date"><br>
+                    <label for="inspection-date">Inspection date</label>
+                    <p></p>
+                    <input type="text" id="certification" name="certification" value="52638"><br>
+                    <label for="certification">Certification No.</label>
+                    <p></p>
+                    <input type="text" id="blank" name="blank"><br>
+                    <label for="blank">  </label>
+                  </form>
+                </div>
+            </div>
+          </div>
+          <div>
+            <h2>Click "Choose File" or "Photo Library". DO NOT choose "Take Photo". If you see "image.jpg" as the photo name, it will not save. </h2>
+          </div>
+          <div>
+            <button id="photoButton1">Choose Photo 1</button>
+            <input type="file" id="fileInput1" class="file-input" accept="image/*">
+            <span id="fileName1"></span>
+          </div>
+          <br>
+          <div>
+            <button id="photoButton2">Choose Photo 2</button>
+            <input type="file" id="fileInput2" class="file-input" accept="image/*">
+            <span id="fileName2"></span>
+          </div>
+          <br>
+          <div>
+            <button id="photoButton3">Choose Photo 3</button>
+            <input type="file" id="fileInput3" class="file-input" accept="image/*">
+            <span id="fileName3"></span>
+          </div>
+          </div>
+          <div id="resetButtons">
+            <button type="button" onclick="resetForm()">Reset Form</button>
+            <button type="button" onclick="resetFormNoIntersections()">Reset Form (no Intersections)</button>
+          </div>
+          </div>
+      
+      <div class="box middle-box">
+        <div class="middle-group">
+          <p>RAMP RUN 1</p>
+        </div>
+        <div class="middle-group2">
+          <p>Pass/Fail</p>
+        </div>
+      <div class="middle-group">
+          <label for="runslope-1">Running Slope 1</label>
+          <input type="number" id="runslope-1" name="runslope-1">
+      </div>
+      <div class="middle-group2">
+        <label for="runslope-1-pf">≤8.3% (Pass) &gt;8.3% (Fail)</label>
+        <select id="runslope-1-pf" name="runslope-1-pf">
+          <option value="pass">Pass</option>
+          <option value="fail">Fail</option>
+        </select>
+      </div>
+      <div class="middle-group">
+          <label for="length1">Length 1</label>
+          <input type="number" id="Length1" name="Length1">
+      </div>
+      <div class="middle-group2">
+        <p>~~~~</p>
+      </div>
+      <div class="middle-group">
+          <label for="cross-slope1">Cross Slope 1</label>
+          <input type="number" id="cross-slope1" name="cross-slope1">
+      </div>
+      <div class="middle-group2">
+        <label for="cross-slope1-pf">≤2.0% (Pass) &gt;2.0% (Fail)</label>
+        <select id="cross-slope1-pf" name="cross-slope1-pf">
+          <option value="pass">Pass</option>
+          <option value="fail">Fail</option>
+        </select>
+      </div>
+      <div class="middle-group">
+          <label for="detectable-warning">Detectable Warning</label>
+          <select id="detectable-warning" name="detectable-warning">
+              <option value="Y">Yes</option>
+              <option value="N">No</option>
+          </select>
+      </div>
+      <div class="middle-group2">
+        <p>~~~~</p>
+      </div>
+      <div class="middle-group">
+          <label for="lip-height">Lip Height</label>
+          <select id="lip-height" name="lip-height">
+              <option value="0">0</option>
+              <option value="0.5">0.5</option>
+              <option value="1">1.0</option>
+              <option value="2">2.0</option>
+              <option value="3">3.0</option>
+              <option value="4">4.0</option>
+          </select>
+      </div>
+      <div class="middle-group2">
+        <label for="lip-height-pf">≤1/4" (Pass) &gt;1/4" (Fail)</label>
+        <select id="lip-height-pf" name="lip-height-pf">
+          <option value="pass">Pass</option>
+          <option value="fail">Fail</option>
+        </select>
+      </div>
+      <div class="middle-group">
+        <label for="gutter-flow">Gutter Flow Slope</label>
+        <input type="number" id="gutter-flow" name="gutter-flow">
+    </div>
+    <div class="middle-group2">
+      <label for="gutter-flow-pf">≤* (Pass) &gt;* (Fail)</label>
+      <select id="gutter-flow-pf" name="gutter-flow-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <label for="curb-slope">Curb Running Slope (avg)</label>
+        <input type="text" id="curb-slope" name="curb-slope">
+        <button id="curb-avg-button">Calculate Average</button>
+    </div>
+    <div class="middle-group2">
+      <label for="curb-slope-pf">≤8.3% (Pass) &gt;8.3% (Fail)</label>
+      <select id="curb-slope-pf" name="curb-slope-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <label for="counter-slope">Counter Slope (+/-) *2</label>
+        <input type="text" id="counter-slope" name="counter-slope">
+    </div>
+    <div class="middle-group2">
+      <label for="counter-slope-pf">≤|5.0|% (Pass) &gt;|5.0|% (Fail)</label>
+      <select id="counter-slope-pf" name="counter-slope-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+      </div>
+      <div class="middle-group">
+        <p>RAMP RUN 2</p>
+      </div>
+      <div class="middle-group2">
+        <p>~~~~</p>
+      </div>
+    <div class="middle-group">
+        <label for="runslope-2">Running Slope 2</label>
+        <input type="number" id="runslope-2" name="runslope-2">
+    </div>
+    <div class="middle-group2">
+      <label for="runslope-2-pf">≤8.3% (Pass) &gt;8.3% (Fail)</label>
+      <select id="runslope-2-pf" name="runslope-2-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <label for="length2">Length 2</label>
+        <input type="number" id="Length2" name="Length2">
+    </div>
+    <div class="middle-group2">
+      <p>~~~~</p>
+    </div>
+    <div class="middle-group">
+        <label for="cross-slope2">Cross Slope 2</label>
+        <input type="number" id="cross-slope2" name="cross-slope2">
+    </div>
+    <div class="middle-group2">
+      <label for="cross-slope2-pf">≤2.0% (Pass) &gt;2.0% (Fail)</label>
+      <select id="cross-slope2-pf" name="cross-slope2-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <p>RAMP RUN 3</p>
+      </div>
+      <div class="middle-group2">
+        <p>~~~~</p>
+      </div>
+    <div class="middle-group">
+        <label for="runslope-3">Running Slope 3</label>
+        <input type="number" id="runslope-3" name="runslope-3">
+    </div>
+    <div class="middle-group2">
+      <label for="runslope-3-pf">≤8.3% (Pass) &gt;8.3% (Fail)</label>
+      <select id="runslope-3-pf" name="runslope-3-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <label for="length3">Length 3</label>
+        <input type="number" id="Length3" name="Length3">
+    </div>
+    <div class="middle-group2">
+      <p>~~~~</p>
+    </div>
+    <div class="middle-group">
+        <label for="cross-slope3">Cross Slope 3</label>
+        <input type="number" id="cross-slope3" name="cross-slope3">
+    </div>
+    <div class="middle-group2">
+      <label for="cross-slope3-pf">≤2.0% (Pass) &gt;2.0% (Fail)</label>
+      <select id="cross-slope3-pf" name="cross-slope3-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <p>TURN SPACE</p>
+      </div>
+      <div class="middle-group2">
+        <p>~~~~</p>
+      </div>
+    <div class="middle-group">
+        <label for="widthx">Width X</label>
+        <input type="text" id="widthx" name="widthx">
+    </div>
+    <div class="middle-group2">
+      <label for="widthx-pf">≥4.0' (Pass) &lt;4.0' (Fail)</label>
+      <select id="widthx-pf" name="widthx-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <label for="lengthy">Length Y</label>
+        <input type="text" id="lengthy" name="lengthy">
+    </div>
+    <div class="middle-group2">
+      <label for="lengthy-pf">≥4.0'*1 (Pass) &lt;4.0'*1 (Fail)</label>
+      <select id="lengthy-pf" name="lengthy-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <label for="obstruction">Back of Ramp Obstruction</label>
+        <select id="obstruction" name="obstruction">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select>
+    </div>
+    <div class="middle-group2">
+      <label for="obstruction-pf">≥5.0' *1 (Pass) &lt;5.0' *1 (Fail)</label>
+      <select id="obstruction-pf" name="obstruction-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <label for="slopex">Slope X (Cross slope 1)</label>
+        <input type="text" id="slopex" name="slopex">
+    </div>
+    <div class="middle-group2">
+      <label for="slopex-pf">≤2.0% (Pass) &gt;2.0% (Fail)</label>
+      <select id="slopex-pf" name="slopex-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <label for="slopey">Slope Y (Running slope 1)</label>
+        <input type="text" id="slopey" name="slopey">
+    </div>
+    <div class="middle-group2">
+      <label for="slopey-pf">≤2.0% (Pass) &gt;2.0% (Fail)</label>
+      <select id="slopey-pf" name="slopey-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <p>MISCELLANEOUS</p>
+      </div>
+      <div class="middle-group2">
+        <p>~~~~</p>
+      </div>
+      <div class="middle-group">
+        <label for="flare-slope1">Flare Slope 1</label>
+        <input type="number" id="flare-slope1" name="flare-slope1">
+    </div>
+      <div class="middle-group2">
+        <label for="flare-slope1-pf">≤10% (Pass) &gt;10% (Fail)</label>
+        <select id="flare-slope1-pf" name="flare-slope1-pf">
+          <option value="pass">Pass</option>
+          <option value="fail">Fail</option>
+        </select>
+      </div>
+      <div class="middle-group">
+        <label for="flare-slope1-trav">Traversable</label>
+        <select id="flare-slope1-trav" name="flare-slope1-trav">
+          <option value="Y">Yes</option>
+          <option value="N">No</option>
+        </select>
+    </div>
+    <div class="middle-group2">
+      <p>~~~</p>
+    </div>
+      <div class="middle-group">
+        <label for="flare-slope2">Flare Slope 2</label>
+        <input type="number" id="flare-slope2" name="flare-slope2">
+    </div>
+      <div class="middle-group2">
+        <label for="flare-slope2-pf">≤10% (Pass) &gt;10% (Fail)</label>
+        <select id="flare-slope2-pf" name="flare-slope2-pf">
+          <option value="pass">Pass</option>
+          <option value="fail">Fail</option>
+        </select>
+      </div>
+    <div class="middle-group">
+      <label for="flare-slope2-trav">Traversable</label>
+        <select id="flare-slope2-trav" name="flare-slope2-trav">
+          <option value="Y">Yes</option>
+          <option value="N">No</option>
+        </select>
+  </div>
+    <div class="middle-group2">
+        <p>~~~</p>
+    </div>
+    <div class="middle-group">
+        <label for="clear-width">Clear Width (feet)</label>
+        <input type="number" id="clear-width" name="clear-width">
+    </div>
+    <div class="middle-group2">
+      <label for="clearwidth-pf">≥4.0' (Pass) &lt;4.0' (Fail)</label>
+      <select id="clearwidth-pf" name="clearwidth-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+    <div class="middle-group">
+        <label for="intersection-control">Intersection Control Type</label>
+        <select id="intersection-control" name="intersection-control">
+            <option value="MB">MB</option>
+            <option value="SU">SU</option>
+            <option value="SY">SY</option>
+            </select>
+    </div>
+    <div class="middle-group2">
+      <label for="road-slope">Slope of Road</label>
+      <input type="number" id="road-slope" name="road-slope">
+    </div>
+    <div class="middle-group">
+        <label for="horizontal-gaps">Horizontal Gaps</label>
+        <input type="text" id="horizontal-gaps" name="horizontal-gaps">
+    </div>
+    <div class="middle-group2">
+      <label for="horizontal-gaps-pf">≤1/2" (Pass) &gt;1/2" (Fail)</label>
+      <select id="horizontal-gaps-pf" name="horizontal-gaps-pf">
+        <option value="pass">Pass</option>
+        <option value="fail">Fail</option>
+      </select>
+    </div>
+</div>
+</div>
+
+<div id="tableModal" class="modal" style="display:none">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Enter Curb Slope Measurements</h3>
+    <table>
+      <tr>
+        <td><input type="number" id="tablenum1" name="tablenum1" class="table-input" placeholder=" "></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="tablenum2" name="tablenum2" class="table-input" placeholder=" "></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="tablenum3" name="tablenum3" class="table-input" placeholder=" "></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="tablenum4" name="tablenum4" class="table-input" placeholder=" "></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="tablenum5" name="tablenum5" class="table-input" placeholder=" "></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="tablenum6" name="tablenum6" class="table-input" placeholder=" "></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="tablenum7" name="tablenum7" class="table-input" placeholder=" "></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="tablenum8" name="tablenum8" class="table-input" placeholder=" "></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="tablenum9" name="tablenum9" class="table-input" placeholder=" "></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="tablenum10" name="tablenum10" class="table-input" placeholder=" "></td>
+      </tr>
+    </table>
+    <button id="calculateAverage">Save & Calculate Average</button>
+  </div>
+</div>
+
+<script src="combination.js"></script>
+<script src="../forms.js"></script>
+<script>
+  function downloadXLSX() {
+    const inputs = document.querySelectorAll('input[type="text"], input[type="number"], input[type="date"], select');
+    const data = [];
+
+    const headers = ['type'];
+    inputs.forEach(input => {
+        headers.push(input.name);
+    });
+    headers.push('Photo 1', 'Photo 2', 'Photo 3'); 
+    data.push(headers);
+
+    const values = ['combination'];
+    inputs.forEach(input => {
+        values.push(input.value);
+    });
+    values.push(
+        document.getElementById('fileName1').textContent,
+        document.getElementById('fileName2').textContent,
+        document.getElementById('fileName3').textContent
+    );
+    data.push(values);
+
+    // Convert data to worksheet and then to XLSX
+    const worksheet = XLSX.utils.aoa_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+    const xlsxData = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const blob = new Blob([xlsxData], { type: 'application/octet-stream' });
+
+    const fileName = document.getElementById('fileName').value || 'data';
+
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `${fileName}.xlsx`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+</body>
+</html>

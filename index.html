@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://js.arcgis.com/4.15/"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <style>
+    body, html {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      display: flex;
+      background-color: #dc5f6d;
+      color: white;
+    }
+
+    #left {
+      width: 30%;
+      height: 100%;
+      border-right: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+    }
+
+    #left iframe {
+      height: 90%;
+      width: 100%;
+    }
+
+    #left p {
+      margin: 0;
+      font-size: 1.5em; 
+      text-align: center; 
+    }
+
+    #left span {
+      font-weight: bold; 
+    }
+
+    #right {
+      width: 70%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #pdfDisplay {
+      height: 80%;
+    }
+
+    #formIFrame {
+      padding: 10px;
+    }
+
+    #controls {
+      height: 20%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .control {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-left: 1px solid black;
+      font-size: 1.2em; 
+    }
+
+    .selectors {
+      display:flex;
+    }
+
+    .control button, .control select, .control input {
+      font-size: 1.2em;
+      padding: 5px; 
+    }
+
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 30px; 
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90vw;
+      height: 90vh; 
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    #mapframe {
+      width: 80vw;
+      height: 80vh;
+    }
+
+    .selectors {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    button, .btn-link {
+      background-color: white;
+      color: #333;
+      border: 2px solid #333;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    #pdf-viewer {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+  <script>
+    function changeIframeSrc() {
+      var dropdown = document.getElementById("formSelect");
+      var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+      var iframe = document.getElementById("formIframe");
+      iframe.src = "forms/" + selectedValue + "/index.html";
+      var pdfDisplay = document.getElementById("pdfDisplay");
+      pdfDisplay.src = "docs/" + selectedValue + ".pdf";
+    }
+  </script>
+</head>
+<body>
+
+  <div id="left">
+    <iframe src="https://arcg.is/DWfqy0" frameborder="0" allow="geolocation"></iframe>
+    <p>Last Submitted ObjectID: <span id="maxId"></span></p>
+    <p>Next ObjectID: <span id="nextObjectId"></span></p>
+  </div>
+
+  <div id="right">
+    <iframe id="formIframe" src="forms/parallel/index.html" width="100%" height="90%"></iframe>
+    <div id="selector">
+      <div class="selectors">
+        <select id="formSelect" onchange="changeIframeSrc()">
+          <option value="parallel">Parallel</option>
+          <option value="combination">Combination</option>
+          <option value="perpendicular">Perpendicular</option>
+          <option value="cutthrough">Cut Through Island</option>
+          <option value="end-of-walk">End of Walk</option>
+          <option value="unique">Unique</option>
+          <option value="blended-transition">Blended Transition</option>
+        </select>
+      </div>
+      <button id="myBtn">View PDF</button>
+      <button id="mapBtn">View Map</button>
+      <a id="guideBtn" href="docs/ADAInspectorsGuide.pdf" download="ADAInspectorsGuide.pdf" class="btn-link">ADA Guide</a>
+    </div>
+  </div>
+  
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <iframe id="pdfDisplay" src="docs/parallel.pdf" style="width:90%; height:90%;"></iframe>
+    </div>
+  </div>
+  
+  <div id="mapModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="mapframe"></div>
+    </div>
+  </div>
+  
+  <div id="guideModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <embed id="pdf-viewer" src="docs/ADAInspectorsGuide.pdf">
+    </div>
+  </div>
+
+  <script>
+    // Modal handling
+    var pdfModal = document.getElementById("myModal");
+    var mapModal = document.getElementById("mapModal");
+    var guideModal = document.getElementById("guideModal");
+
+    var pdfBtn = document.getElementById("myBtn");
+    var mapBtn = document.getElementById("mapBtn");
+    var guideBtn = document.getElementById("guideBtn");
+
+    var pdfClose = pdfModal.getElementsByClassName("close")[0];
+    var mapClose = mapModal.getElementsByClassName("close")[0];
+    var guideClose = guideModal.getElementsByClassName("close")[0];
+
+    pdfBtn.onclick = function() {
+      pdfModal.style.display = "block";
+    }
+
+    mapBtn.onclick = function() {
+      mapModal.style.display = "block";
+    }
+
+    guideBtn.onclick = function() {
+      guideModal.style.display = "block";
+    }
+
+    pdfClose.onclick = function() {
+      pdfModal.style.display = "none";
+    }
+
+    mapClose.onclick = function() {
+      mapModal.style.display = "none";
+    }
+
+    guideClose.onclick = function() {
+      guideModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == pdfModal || event.target == mapModal || event.target == guideModal) {
+        pdfModal.style.display = "none";
+        mapModal.style.display = "none";
+        guideModal.style.display = "none";
+      }
+    }
+
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer"
+    ], function(Map, MapView, FeatureLayer) {
+      const popupTemplate = {
+        title: "{OBJECTID}"
+      }
+
+      const featureLayer = new FeatureLayer({
+        url: "https://services3.arcgis.com/pZZTDhBBLO3B9dnl/arcgis/rest/services/survey123_64d4f78251234606b2b8bfd0e29ffde6_results/FeatureServer/0",
+        popupTemplate: popupTemplate
+      });
+
+      var map = new Map({
+        basemap: "satellite"
+      });
+
+      var view = new MapView({
+        container: "mapframe",
+        map: map,
+        center: [-122.99501995806335, 45.59693760590502], 
+        zoom: 14 
+      });
+
+      map.add(featureLayer);
+
+      featureLayer.queryObjectIds().then(function(ids) {
+        var maxId = Math.max(...ids);
+        var nextObjectId = maxId + 1;
+        console.log(maxId);
+        console.log(nextObjectId);
+        document.getElementById('nextObjectId').innerText = nextObjectId;
+        document.getElementById('maxId').innerText = maxId;
+
+        const iframe = document.getElementById('formIframe');
+        iframe.contentWindow.postMessage({ nextObjectId: nextObjectId }, '*');
+    });
+});
+
+function displayPDF() {
+    var pdfSelect = document.getElementById("pdfSelect");
+    var pdfDisplay = document.getElementById("pdfDisplay");
+    var selectedPDF = pdfSelect.value;
+
+    if (selectedPDF) {
+        pdfDisplay.src = selectedPDF;
+    } else {
+        pdfDisplay.src = "";
+    }
+}
+
+function downloadPDF() {
+    var pdfSelect = document.getElementById("pdfSelect");
+    var fileNumber = document.getElementById("fileNumber").value;
+    var selectedPDF = pdfSelect.value;
+
+    if (selectedPDF && fileNumber) {
+        var link = document.createElement('a');
+
+        link.href = selectedPDF;
+
+        link.download = fileNumber + '.pdf';
+
+        document.body.appendChild(link);
+
+        link.click();
+        
+        document.body.removeChild(link);
+    }
+}
+</script>
+  </script>
+
+</body>
+</html>
