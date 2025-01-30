@@ -3,7 +3,7 @@ import pandas as pd
 from pdfrw import PdfReader, PdfWriter, PdfDict, PdfName
 
 ########## Create extra data columns for use in dashboards
-df = pd.read_csv(r"C:\python\scripts\pdfeditor2\processing\combined_output.csv")
+df = pd.read_csv(r"C:\3japps\ADA-Inspection\processing\combined_output.csv")
 
 df["fail_count"] = df.apply(lambda row: (row == "fail").sum(), axis=1)
 
@@ -12,7 +12,7 @@ df["intersection_name"] = df.apply(
 )
 
 df["file_link"] = df.apply(
-    lambda row: f"O:\\City of North Plains\\City Projects\\Misc\\ADA Study\\GIS\\Outputs\\{row['fileName']}.pdf",
+    lambda row: f"https://gis-3j-consulting.github.io/ADA-inspection/docs/PDFs/{row['fileName']}.pdf",
     axis=1,
 )
 
@@ -34,7 +34,7 @@ df["failing_test"] = df["failing_test"].apply(
 print(df)
 
 df.to_csv(
-    r"C:\python\scripts\pdfeditor2\processing\combined_processed_output2.csv",
+    r"C:\3japps\ADA-Inspection\processing\combined_processed_output2.csv",
     index=False,
 )
 
@@ -47,9 +47,7 @@ logging.basicConfig(
     level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-df = pd.read_csv(
-    r"C:\python\scripts\pdfeditor2\processing\combined_processed_output2.csv"
-)
+df = pd.read_csv(r"C:\3japps\ADA-Inspection\processing\combined_processed_output2.csv")
 lookup_values = pd.read_excel(
     r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Tables\csvTextOutput1.xlsx"
 )
@@ -95,7 +93,7 @@ for index, row in df.iterrows():
 
         df.at[index, "failing_test"] = ", ".join(expanded_tests)
 
-output_path = r"C:\python\scripts\pdfeditor2\processing\updated_output.csv"
+output_path = r"C:\3japps\ADA-Inspection\processing\updated_output.csv"
 df.to_csv(output_path, index=False)
 logging.info(f"Updated CSV saved to {output_path}")
 

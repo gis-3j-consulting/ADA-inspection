@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 dataframes = []
-output_folder = r"C:\python\scripts\pdfeditor2\processing\downloads"
+output_folder = r"C:\\3japps\\ADA-Inspection\\processing\\downloads"
 
 for file_name in os.listdir(output_folder):
     if file_name.endswith(".xlsx") or file_name.endswith(".xls"):
@@ -17,7 +17,7 @@ for file_name in os.listdir(output_folder):
 
 combined_df = pd.concat(dataframes, ignore_index=True, sort=False)
 
-combined_output_path = r"C:\python\scripts\pdfeditor2\processing\combined_output2.xlsx"
+combined_output_path = r"C:\\3japps\\ADA-Inspection\\processing\\combined_output2.xlsx"
 combined_df.to_excel(combined_output_path, index=False)
 
 update_csv = combined_output_path.split(".")[0] + ".csv"
@@ -66,6 +66,6 @@ def update_table(combined_output, recent_output):
     print(f"{combined_output} table updated with data from {recent_output}")
 
 
-master_table = r"C:\python\scripts\pdfeditor2\processing\combined_output.csv"
+master_table = r"C:\\3japps\\ADA-Inspection\\processing\\combined_output.csv"
 
 update_table(master_table, update_csv)

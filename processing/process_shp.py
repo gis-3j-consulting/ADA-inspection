@@ -8,7 +8,7 @@ import fiona
 import arcpy
 
 # Set input and output paths
-input_fc = r"P:\21713-North Plains\GIS\mxd\21713 North Plains.gdb\ADA_Ramp_Inspections"
+input_fc = r"P:\21713-North Plains\GIS\mxd\21713 North Plains.gdb\survey_Clip7"
 output_fc = (
     r"P:\21713-North Plains\GIS\mxd\21713 North Plains.gdb\ADA_Ramp_Inspections2"
 )
