@@ -1,12 +1,8 @@
 import pandas as pd
 import os
 
-df = pd.read_csv(
-    r"C:\python\scripts\pdfeditor2\processing\combined_processed_output.csv"
-)
-folder_path = (
-    r"C:\Users\ianm\Desktop\3J\ADA_Outputs\attachments\pictures\sort\202411__a"
-)
+df = pd.read_csv(r"C:\3japps\ADA-Inspection\processing\combined_processed_output.csv")
+folder_path = r"C:\Users\ianm\Desktop\3J\ADA_Outputs\attachments\pictures\sort\202412__"
 
 print(df.head())
 
