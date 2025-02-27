@@ -20,7 +20,7 @@ def downloadAttachments(feature_layer_url, output_folder, last_download):
     object_id_field = "objectid"
 
     table_extensions = [".xlsx", ".xls"]
-    image_extensions = [".png"]
+    image_extensions = [".jpg", ".jpeg", ".png", ".JPG", ".JPEG"]
 
     if features:
         for feature in features:
@@ -105,7 +105,7 @@ def downloadAttachments(feature_layer_url, output_folder, last_download):
 
 
 feature_layer_url = "https://services3.arcgis.com/pZZTDhBBLO3B9dnl/arcgis/rest/services/survey123_64d4f78251234606b2b8bfd0e29ffde6_results/FeatureServer/0"
-output_folder = r"C:\3japps\ADA-Inspection\processing\downloads"
-last_download = 455
+output_folder = r"C:\Users\ianm\Desktop\3J\ADA_Outputs\attachments\attachments_backup"
+last_download = 0
 
 downloadAttachments(feature_layer_url, output_folder, last_download)

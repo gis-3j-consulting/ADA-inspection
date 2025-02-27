@@ -233,10 +233,12 @@ def fill_pdf_form(pdf_template_path, data, lookup, output_path):
     PdfWriter().write(output_path, template_pdf)
 
 
-combined_csv_path = r"C:\3japps\ADA-Inspection\processing\combined_processed_output.csv"
+combined_csv_path = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Tables\combined_processed_output.csv"
 data_df = pd.read_csv(combined_csv_path)
 
-lookup_path = r"C:\3japps\ADA-Inspection\processing\lookup.csv"
+lookup_path = (
+    r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Tables\lookup.csv"
+)
 lookup_df = pd.read_csv(lookup_path)
 
 output_folder = r"C:\3japps\ADA-Inspection\processing\output"
@@ -304,6 +306,7 @@ def process_specific_row(data_df, output_folder, row_index):
     print(f"Now processing row {row_index} with fileName '{file_name}'")
     fill_pdf_form(pdf_template_path, row, lookup_dict, output_path)
 
+process_specific_row(data_df, output_folder, 392)
 
 def process_rows_by_objectid(data_df, output_folder, objectid_threshold):
     data_df["fileName"] = pd.to_numeric(data_df["fileName"], errors="coerce")
