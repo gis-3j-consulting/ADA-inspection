@@ -120,8 +120,8 @@ cut_field_coordinates = {
     "nspctn_dt": {"coordinates": (1.07, 5.42)},
 }
 
-input_pdf_dir = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattenedCopy\formsCleared\unflattened\test"
-output_dir = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattenedCopy\formsCleared\stamped"
+input_pdf_dir = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\flattened_fieldsCleared"
+output_dir = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs"
 
 data_file = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Tables\combined_processed_output.csv"
 df = pd.read_csv(data_file)
