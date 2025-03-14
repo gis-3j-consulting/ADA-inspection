@@ -1,0 +1,120 @@
+PDF PROCESSING REPORT
+==================================================
+Date: 2025-03-13 13:17:37
+Input folder: O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup
+Output folder: O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\cleared
+
+SUMMARY
+--------------------------------------------------
+Total files processed: 136
+Successful files (with cleared fields): 101
+Failed files: 35
+Files with no fields cleared: 0
+
+FAILED FILES
+--------------------------------------------------
+1. 128.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\128.pdf: 'TextStringObject' object has no attribute '_clone'
+
+2. 137.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\137.pdf: 'TextStringObject' object has no attribute '_clone'
+
+3. 141.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\141.pdf: 'TextStringObject' object has no attribute '_clone'
+
+4. 149.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\149.pdf: 'TextStringObject' object has no attribute '_clone'
+
+5. 150.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\150.pdf: 'TextStringObject' object has no attribute '_clone'
+
+6. 160.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\160.pdf: 'TextStringObject' object has no attribute '_clone'
+
+7. 165.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\165.pdf: 'TextStringObject' object has no attribute '_clone'
+
+8. 173.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\173.pdf: 'TextStringObject' object has no attribute '_clone'
+
+9. 174.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\174.pdf: 'TextStringObject' object has no attribute '_clone'
+
+10. 175.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\175.pdf: 'TextStringObject' object has no attribute '_clone'
+
+11. 178.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\178.pdf: 'TextStringObject' object has no attribute '_clone'
+
+12. 186.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\186.pdf: 'TextStringObject' object has no attribute '_clone'
+
+13. 195.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\195.pdf: 'TextStringObject' object has no attribute '_clone'
+
+14. 196.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\196.pdf: 'TextStringObject' object has no attribute '_clone'
+
+15. 197.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\197.pdf: 'TextStringObject' object has no attribute '_clone'
+
+16. 198.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\198.pdf: 'TextStringObject' object has no attribute '_clone'
+
+17. 202.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\202.pdf: 'TextStringObject' object has no attribute '_clone'
+
+18. 211.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\211.pdf: 'TextStringObject' object has no attribute '_clone'
+
+19. 212.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\212.pdf: 'TextStringObject' object has no attribute '_clone'
+
+20. 224.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\224.pdf: 'TextStringObject' object has no attribute '_clone'
+
+21. 234.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\234.pdf: 'TextStringObject' object has no attribute '_clone'
+
+22. 254.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\254.pdf: 'TextStringObject' object has no attribute '_clone'
+
+23. 271.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\271.pdf: 'TextStringObject' object has no attribute '_clone'
+
+24. 31.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\31.pdf: 'TextStringObject' object has no attribute '_clone'
+
+25. 35.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\35.pdf: 'TextStringObject' object has no attribute '_clone'
+
+26. 363.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\363.pdf: 'TextStringObject' object has no attribute '_clone'
+
+27. 389.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\389.pdf: 'TextStringObject' object has no attribute '_clone'
+
+28. 421.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\421.pdf: 'TextStringObject' object has no attribute '_clone'
+
+29. 46.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\46.pdf: 'TextStringObject' object has no attribute '_clone'
+
+30. 47.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\47.pdf: 'TextStringObject' object has no attribute '_clone'
+
+31. 53.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\53.pdf: 'TextStringObject' object has no attribute '_clone'
+
+32. 59.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\59.pdf: 'TextStringObject' object has no attribute '_clone'
+
+33. 67.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\67.pdf: 'TextStringObject' object has no attribute '_clone'
+
+34. 70.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\70.pdf: 'TextStringObject' object has no attribute '_clone'
+
+35. 76.pdf
+   Error: Error processing O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\76.pdf: 'TextStringObject' object has no attribute '_clone'
+

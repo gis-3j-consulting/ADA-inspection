@@ -28,6 +28,16 @@ def fill_pdf_text(record, output_filename, template_pdf, fields, output_dir):
             x_pt = coordinates_in_inches[0] * 72
             y_pt = (11 - coordinates_in_inches[1]) * 72
 
+            rect_width = 10
+            rect_height = 35
+
+            page.draw_rect(
+                fitz.Rect(x_pt - rect_width, y_pt - rect_height, x_pt, y_pt + 5),
+                color=(1, 1, 1),
+                fill=(1, 1, 1),
+                width=1,
+            )
+
             text_point = fitz.Point(x_pt, y_pt)
 
             page.insert_text(text_point, str(value), fontsize=12, rotate=90)
@@ -120,8 +130,8 @@ cut_field_coordinates = {
     "nspctn_dt": {"coordinates": (1.07, 5.42)},
 }
 
-input_pdf_dir = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\flattened_fieldsCleared"
-output_dir = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs"
+input_pdf_dir = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\cleared"
+output_dir = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Outputs\unflattened\fixup\cleared\flatt"
 
 data_file = r"O:\City of North Plains\City Projects\Misc\ADA Study\GIS\Tables\combined_processed_output.csv"
 df = pd.read_csv(data_file)
